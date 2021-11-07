@@ -381,7 +381,7 @@ include_once("connection.php");
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/toylogo.jpg" alt=""></a>
+                            <a href="./index.html"><img src="ATNtoy/Logo.jpg" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 160 Road 30/4 An Phu, Ninh Kieu, Can Tho, Vietnam</li>
