@@ -66,13 +66,9 @@
                             <h5><a href="#">Levi Akerman</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="ATNtoy/Goku.jpg">
-                            <h5><a href="#">Son Goku</a></h5>
-                        </div>
-                    </div>
+                    
                     <div class="categories__item set-bg" data-setbg="ATNtoy/Mikey.jpg">
-                            <h5><a href="#">Son Miket Sanjiro</a></h5>
+                            <h5><a href="#">Son Mikey Sanjiro</a></h5>
                         </div>
                     </div>
                 </div>
