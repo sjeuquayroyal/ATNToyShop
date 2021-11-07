@@ -66,9 +66,8 @@
                             <h5><a href="#">Levi Akerman</a></h5>
                         </div>
                     </div>
-                    
                     <div class="categories__item set-bg" data-setbg="ATNtoy/Mikey.jpg">
-                            <h5><a href="#">Son Mikey Sanjiro</a></h5>
+                            <h5><a href="#">Mikey Sanjiro</a></h5>
                         </div>
                     </div>
                 </div>
