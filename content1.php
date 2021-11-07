@@ -62,23 +62,22 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/queen.jpg">
-                            <h5><a href="#">Queen</a></h5>
+                        <div class="categories__item set-bg" data-setbg="ATNtoy/Levi.jpg">
+                            <h5><a href="#">Levi Akerman</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/Michaelalbumcover.jpg">
-                            <h5><a href="#">Michael Jackson</a></h5>
+                        <div class="categories__item set-bg" data-setbg="ATNtoy/ Armin.jpg">
+                            <h5><a href="#">Armin Akerman</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/eltonjohnalbum.jpg">
-                            <h5><a href="#">Elton John</a></h5>
+                        <div class="categories__item set-bg" data-setbg="ATNtoy/Goku.jpg">
+                            <h5><a href="#">Son Goku</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/pinkfloydalbum.jpg">
-                            <h5><a href="#">Pink Floyd</a></h5>
+                    <div class="categories__item set-bg" data-setbg="ATNtoy/Mikey.jpg">
+                            <h5><a href="#">Son Miket Sanjiro</a></h5>
                         </div>
                     </div>
                 </div>
