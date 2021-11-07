@@ -62,7 +62,7 @@ $row=pg_fetch_array($result, NULL, PGSQL_ASSOC);
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/backgroundvinyl.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

@@ -37,7 +37,7 @@ include_once("connection.php");
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="?page=content"><img src="img/toylogo.jpg" alt=""></a>
+            <a href="?page=content"><img src="ATNtoy/main.jpg" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
