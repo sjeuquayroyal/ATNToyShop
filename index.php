@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="shortcut icon" href="ATNtoy/mainbg.jpg">
+    <link rel="shortcut icon" href="ATNtoy/Logo.jpg">
 </head>
 
 <body>
@@ -37,7 +37,7 @@ include_once("connection.php");
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="?page=content"><img src="ATNtoy/mainbg.jpg" alt=""></a>
+            <a href="?page=content"><img src="ATNtoy/Logo.jpg" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
