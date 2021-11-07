@@ -117,7 +117,7 @@
 							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id)
 							VALUES('$id','$proname', $price,'$short','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category')";
 							
-						pg_query($conn, $sql);
+						pg_query($conn, $sqlstring);
 						echo'<li>You have add successfully</li>';
 
 					}	
@@ -134,7 +134,7 @@
 	}
 ?>
    
-   <div class="container">
+<div class="container">
 	<h2>Adding Product</h2>
 
 	 	<form id="frmProduct" name="frmProduct" method="post" enctype="multipart/form-data" action="" class="form-horizontal" role="form">

@@ -90,7 +90,7 @@
 	if(isset($_GET['id']))
 	{
 		$id = $_GET['id'];
-		$sqlString = "SELECT product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id from product where product_id='$id'";
+		$sqlString = "SELECT product_name, price, smalldesc, detaildesc, proDate, pro_qty, pro_image, cat_id from product where product_id='$id'";
 
 		$result = pg_query($conn, $sqlString);
 		$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
@@ -118,7 +118,7 @@
 					<label for="txtTen" class="col-sm-2 control-label">Product Name(*):  </label>
 							<div class="col-sm-10">
 								  <input type="text" name="txtName" id="txtName" class="form-control" 
-								  placeholder="Product Name" value='<?php echo $row["Product_name"]?>'/>
+								  placeholder="Product Name" value='<?php echo $row["Product_Name"]?>'/>
 							</div>
                 </div>   
                 <div class="form-group">   

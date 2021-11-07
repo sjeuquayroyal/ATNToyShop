@@ -34,10 +34,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="ATNtoy/backgroundvinyl.jpg">
+                    <div class="hero__item set-bg" data-setbg="img/hero/backgroundvinyl.jpg">
                         <div class="hero__text">
                             <span>NEW ON</span>
-                            <h2>ATN <br />Toy</h2> 
+                            <h2>ATN <br />Toy Store</h2> 
                             
                             <a href="?page=shop-grid" class="primary-btn">SHOP NOW</a>
                         </div>
