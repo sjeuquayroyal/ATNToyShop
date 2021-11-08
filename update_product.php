@@ -90,7 +90,7 @@
 	if(isset($_GET['id']))
 	{
 		$id = $_GET['id'];
-		$sqlString = "SELECT product_name, price, smalldesc, detaildesc, proDate, pro_qty, pro_image, cat_id from product where product_id='$id'";
+		$sqlString = "SELECT product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id from product where product_id='$id'";
 
 		$result = pg_query($conn, $sqlString);
 		$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
@@ -200,7 +200,7 @@
 				if ($pic['type']=="image/jpg" || $pic['type']=="image/jpeg"|| 
 					$pic['type']=="image/png" || $pic['type']=="image/gif")
 				{
-					if($pic['size']<=614400)
+					if($pic['size']<=6144000)
 					{
 						// $sql="select * from Product where Product_ID='$id' and Product_Name='$proname'";
 						// $result = mysqli_query($conn, $sql);
@@ -209,8 +209,8 @@
 							copy($pic['tmp_name'], "img/".$pic['name']);
 							$filepic = $pic['name'];
 							
-							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short', detaildesc ='$detail', pro_qty='$qty', pro_image='$filepic', cat_id='$cat', 
-							prodate='".date('Y-m-d H:i:s')."' where product_id ='$id'";
+							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short', detaildesc ='$detail', 
+							pro_qty='$qty', pro_image='$filepic', cat_id='$cat', prodate='".date('Y-m-d H:i:s')."' where product_id ='$id'";
 							pg_query($conn,$sqlString);
 							echo '<meta http-equiv="refresh" content="0;URL=?page=pm"';	
 						// }
