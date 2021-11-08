@@ -317,7 +317,7 @@
                         else{
 
                             $result = pg_query($conn,"SELECT product_id, product_name, price, pro_qty, pro_image, cat_name  from product a, category b  
-                            where a.Cat_ID = b.Cat_ID order by cat_name desc");
+                            where a.cat_id = b.cat_id order by cat_name desc");
                         }
                         
                     while($row=pg_fetch_array($result, NULL, PGSQL_ASSOC)) { 
