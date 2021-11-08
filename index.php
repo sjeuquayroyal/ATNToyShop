@@ -223,14 +223,28 @@ include_once("connection.php");
                         <ul>
                             <li class="active"><a href="?page=content">Home</a></li>
                             <li><a href="?page=shop-grid">Shop</a></li>
-                            <?php 
-                            <ul class="header__menu__dropdown">
-                                    
-                            <li><a href="?page=shopping-cart">Shoping Cart</a></li>
-                            <li><a href="?page=checkout">Check Out</a></li>
-                            
-                        </ul>
-                            ?>
+
+                            <?php  if(!isset($_SESSION['admin']) && $_SESSION['admin'] <> 1){ 
+
+?>  <li><a id ="CMM"href="?page=pm">Product Management </a>
+        <ul class="header__menu__dropdown">
+        <li><a href="?page=cat">Category Management</a></li>
+        </ul>
+        <li><a href="?page=content">Pages</a>
+    <ul class="header__menu__dropdown">
+        
+        <li><a href="?page=shopping-cart">Shoping Cart</a></li>
+        <li><a href="?page=checkout">Check Out</a></li>
+        
+    </ul>
+</li>
+    
+<?php } else { 
+?>
+
+
+
+
                             <?php  if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){ 
 
                             ?>  <li><a id ="CMM"href="?page=pm">Product Management </a>
@@ -238,8 +252,31 @@ include_once("connection.php");
                                     <li><a href="?page=cat">Category Management</a></li>
                                     </ul>
                                     <li><a href="?page=content">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    
+                                    <li><a href="?page=shopping-cart">Shoping Cart</a></li>
+                                    <li><a href="?page=checkout">Check Out</a></li>
+                                    
+                                </ul>
+                            </li>
                                 
-                                </li>
+                            <?php } else { 
+                            ?>
+                            
+                            <?php  if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){ 
+
+                            ?>  <li><a id ="CMM"href="?page=pm">Product Management </a>
+                                    <ul class="header__menu__dropdown">
+                                    <li><a href="?page=cat">Category Management</a></li>
+                                    </ul>
+                                    <li><a href="?page=content">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    
+                                    <li><a href="?page=shopping-cart">Shoping Cart</a></li>
+                                    <li><a href="?page=checkout">Check Out</a></li>
+                                    
+                                </ul>
+                            </li>
                                 
                             <?php } else { 
                             ?>
