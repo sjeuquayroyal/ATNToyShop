@@ -79,9 +79,9 @@
                 if(isset( $_POST['btnSearch']))
                 {
                     $search = $_POST['txtSearch'];
-                    $result = mysqli_query($conn,"SELECT Product_ID, Product_Name, Price, Pro_qty, Pro_image, Cat_Name 
+                    $result = pg_query($conn,"SELECT product_id, product_name, price, pro_qty, pro_image, cat_name 
                     from product a, category b 
-                    where a.Cat_ID = b.Cat_ID AND Product_Name like '%$search%' order by Pro_image desc");
+                    where a.catid = b.cat_id AND product_name like '%$search%' order by pro_image desc");
                     ?>
                     <section class="featured spad">
                         <div class="container">
@@ -94,22 +94,22 @@
                             </div>
                             <div class="row featured__filter">
                     <?php
-                    while($row=mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
+                    while($row=pg_fetch_array($result, NULL, MYSQLI_ASSOC)) { 
                     ?>
                    
                                 <div class="col-lg-3 col-md-4 col-sm-6 mix ">
                                     <div class="featured__item">
-                                        <div class="featured__item__pic set-bg" data-setbg="img/<?php echo $row['Pro_image'] ?>">
+                                        <div class="featured__item__pic set-bg" data-setbg="img/<?php echo $row['pro_image'] ?>">
                                             <ul class="featured__item__pic__hover">
                                             
                                                 <li><a href="#"><span class="fa fa-heart"></span></a></li>
                                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="?page=shop-details&&id=<?php echo  $row['Product_ID'] ?>"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="?page=shop-details&&id=<?php echo  $row['product_id'] ?>"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="featured__item__text">
-                                            <h6><a href="?page=shop-details&&id=<?php echo  $row['Product_ID'] ?>"><?php echo $row["Product_Name"] ?></a></h6>
-                                            <h5>$<?php echo $row["Price"] ?></h5>
+                                            <h6><a href="?page=shop-details&&id=<?php echo  $row['product_id'] ?>"><?php echo $row["product_name"] ?></a></h6>
+                                            <h5>$<?php echo $row["price"] ?></h5>
                                         </div>
                                     </div>
                                 </div>
