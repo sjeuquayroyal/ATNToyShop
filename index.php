@@ -239,9 +239,16 @@ include_once("connection.php");
                                 </ul>
                             </li>
                                 
-                            <?php } else { 
+                            <?php } else {                         
                             ?>
-                            
+                            <li><a href="?page=content">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    
+                                    <li><a href="?page=shopping-cart">Shoping Cart</a></li>
+                                    <li><a href="?page=checkout">Check Out</a></li>
+                                    
+                                </ul>
+                            </li>
                            
                             <li><a href="?page=contact">Contact</a></li>
                             <?php 
