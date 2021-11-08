@@ -164,7 +164,7 @@
                                         
                                     </td>
                                     <td class="shoping__cart__total">
-                                       <a href="?page=edit&&id=<?php echo $row['Product_ID'] ?>"> EDIT</a>
+                                       <a href="?page=edit&&id=<?php echo $row['product_id'] ?>"> EDIT</a>
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         

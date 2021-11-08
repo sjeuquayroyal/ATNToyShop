@@ -70,7 +70,7 @@
 	include_once("connection.php");
 	function bind_Category_List($conn, $selectedValue)
 	{
-		$sqlString = "SELECT cat_id, cat_name from category";
+		$sqlString = "SELECT cat_id,cat_name from category";
 		$result = pg_query($conn, $sqlString);
 		echo "<SELECT name ='CategoryList' class='from-control'>
 			<option value='0'>Choose Category</option>";
