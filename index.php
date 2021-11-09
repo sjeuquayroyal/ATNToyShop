@@ -143,7 +143,7 @@ include_once("connection.php");
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> tuonggcc19257@fpt.edu.vn</li>
+                                <li><i class="fa fa-envelope"></i> sieungcc19186@fpt.edu.vn</li>
                                 <li>Free Shipping on All Orders Under $100</li>
                             </ul>
                         </div>

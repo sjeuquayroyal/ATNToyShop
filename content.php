@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="ATNtoy/ace.jpg">
+                        <div class="categories__item set-bg" data-setbg="ATNtoy/Ace.jpg">
                             <h5><a href="#">Portgas.D. Ace</a></h5>
                         </div>
                     </div>
