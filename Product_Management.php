@@ -47,7 +47,7 @@
                                     <span class="arrow_carrot-down"></span>
                                     
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -146,7 +146,7 @@
 
                                 <tr>
                                     <td class="shoping__cart__item" style="width: 1000px">
-                                        <img src="img/<?php echo $row['pro_image'] ?>" alt="">
+                                        <img src="ATNtoy/<?php echo $row['pro_image'] ?>" alt="">
                                         <h5><?php echo $row["product_name"]; ?></h5>
                                     </td>
                                     <td class="shoping__cart__item">
