@@ -149,7 +149,7 @@
                                 ?>
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <img src="img/<?php echo $value['img'] ?>" alt="">
+                                        <img src="ATNtoy/<?php echo $value['img'] ?>" alt="">
                                         <h5><?php echo $value['name'] ?></h5>
                                     </td>
                                     <td class="shoping__cart_price">
