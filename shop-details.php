@@ -3,7 +3,7 @@
 
 if(isset($_GET['id'])){
 $id = $_GET['id'];
-$sql = "SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, product.smalldesc, product.detaildesc 
+$sql = "SELECT product.product_id,product.product_name,product.price,product.pro_qty,product.pro_image,category.cat_name,product.smalldesc,product.detaildesc 
 from product , category  
 where product.cat_id = category.cat_id and product.product_id='$id'";
 $result = pg_query($conn, $sql);
