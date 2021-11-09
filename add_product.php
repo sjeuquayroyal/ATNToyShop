@@ -104,14 +104,14 @@
 			echo"<ul>$err</ul>";
 		}
 		else{
-			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png" ||$pic['type']=="image/gif"){
-				if($pic['size']<=614400){
+			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png"||$pic['type']=="image/gif"){
+				if($pic['size']<=9999999999){
 					$sq="SELECT * from product where product_id='$id'or product_name='$proname'";
                     $result= pg_query($conn,$sq);
                     
 					if(pg_num_rows($result)==0)
 					{
-						copy($pic['tmp_name'],"img/".$pic['name']);
+						copy($pic['tmp_name'],"ATNtoy/".$pic['name']);
 						$filePic =$pic['name'];
 						$sqlstring="INSERT INTO product(
 							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id)
