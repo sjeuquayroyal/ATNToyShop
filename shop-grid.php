@@ -29,7 +29,7 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -38,7 +38,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 76 395 7775</h5>
+                                <h5>+84 09 078 53006</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -259,7 +259,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="img/<?php echo $row['pro_image'] ?>">
+                                            data-setbg="ATNtoy/<?php echo $row['pro_image'] ?>">
                                             
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -327,7 +327,7 @@
 
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/<?php echo $row['pro_image'] ?>">
+                                <div class="product__item__pic set-bg" data-setbg="ATNtoy/<?php echo $row['pro_image'] ?>">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
