@@ -91,7 +91,7 @@ $row=pg_fetch_array($result, NULL, PGSQL_ASSOC);
                                 src="img/<?php echo $row["Pro_image"]; ?>" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="ATNtoy/Ace.jpg"
+                            <img data-imgbigurl="ATNtoy/kris.jpg"
                                 src="ATNtiy/Luffy.jpg" alt="">
                             <img data-imgbigurl="ATNtoy/Mikey.jpg"
                                 src="ATNtoy/pika.jpg" alt="">
