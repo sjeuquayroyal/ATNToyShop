@@ -224,7 +224,7 @@ if(isset($_POST['btnRegister']))
                                   <select name="slYear" id="slYear" class="form-control">
                                     <option value="0">Choose Year</option>
                                     <?php
-                                        for($i=2021;$i<=2000;$i++)
+                                        for($i=2021;$i<=2000;$i--)
                                          {
                                              echo "<option value='".$i."'>".$i."</option>";
                                          }
