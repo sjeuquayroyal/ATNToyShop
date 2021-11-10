@@ -117,7 +117,7 @@ include_once("connection.php");
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> sieungccgcc19186@fpt.edu.vn</li>
-                <li>A shopping website of toy</li>
+                <li>A shopping website for toy</li>
             </ul>
         </div>
         <div class="col-lg-3">
@@ -144,7 +144,7 @@ include_once("connection.php");
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> sieungcc19186@fpt.edu.vn</li>
-                                <li>A shopping website of toy </li>
+                                <li>A shopping website for toy </li>
                             </ul>
                         </div>
                     </div>
@@ -438,7 +438,7 @@ include_once("connection.php");
             <div class="row">
                 <div class="col-lg-12">
                     <div class="footer__copyright">
-                        <div class="footer__copyright__text"></div>
+                        <div class="footer__copyright__text"> Sieu Nguyen</div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>
                 </div>
@@ -469,7 +469,7 @@ include_once("connection.php");
             }
         }
     </script>
-    <?php // list category vinyl audio cassette
+    <?php 
     include_once("connection.php");
 	function Category_List($conn )
 	{
