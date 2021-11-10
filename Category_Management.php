@@ -73,7 +73,7 @@
         <form name="frm" method="post" action="">
         <h1>Category Management</h1>
         <p>
-        <i class="fa fa-plus" text-align: right></i> <a href="?page=addc"> Add</a>
+        <i class="fa fa-plus"></i> <a href="?page=addc"> Add</a>
         </p>
         <table id="tablecategory" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
