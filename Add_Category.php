@@ -56,7 +56,7 @@
                         <h2>Products Management</h2>
                         <div class="breadcrumb__option">
                             <a href="?page=content">Home</a>
-                            <span>Products Management</span>
+                            <span>Categories Management</span>
                         </div>
                     </div>
                 </div>

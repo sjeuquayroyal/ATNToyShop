@@ -10,9 +10,9 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="#">Vinyl</a></li>
-                            <li><a href="#">Audio</a></li>
-                            <li><a href="#">Cassette</a></li>
+                            <li><a href="#">One Piece</a></li>
+                            <li><a href="#">Tokyo Revenger</a></li>
+                            <li><a href="#">Attack on Titan</a></li>
                             
                         </ul>
                     </div>
@@ -54,7 +54,7 @@
                         <h2>Adding</h2>
                         <div class="breadcrumb__option">
                             <a href="?page=content">Home</a>
-                            <a href="?page=content">Recorded</a>
+                            <a href="?page=content">Product</a>
                             <span>Add New</span>
                         </div>
                     </div>
