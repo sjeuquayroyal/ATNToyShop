@@ -9,10 +9,10 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-                            <li><a href="#">Vinyl</a></li>
-                            <li><a href="#">Cassette</a></li>
+                            <li><a href="#">One Piece</a></li>
+                            <li><a href="#">CTokyo Revenger</a></li>
                             
-                            <li><a href="#">Audio</a></li>
+                            <li><a href="#">Attack on Titan</a></li>
                             
                         </ul>
                     </div>
@@ -60,74 +60,56 @@
             </div>
         </div>
     </section>
-<?php 
-if(isset($_POST['btnRegister']))
-{
-    $us = $_POST ['txtUsername'];
-    $pass1= $_POST['txtPass1'];
-    $pass2= $_POST['txtPass2'];
-    $fullname= $_POST['txtFullname'];
-    $email= $_POST['txtEmail'];
-    $address= $_POST['txtAddress'];
-    $tel= $_POST['txtTel'];
-
-    if(isset($_POST['grpRender']))
-    {
-        $sex= $_POST['grpRender'];
+    <?php
+ if(isset($_POST['btnRegister']))
+ {
+     $us=$_POST['txtUsername'];
+     $pass1=$_POST['txtPass1'];
+     $pass2=$_POST['txtPass2'];
+     $fullname=$_POST['txtFullname'];
+     $email=$_POST['txtEmail'];
+     $address=$_POST['txtAddress'];
+     $tel=$_POST['txtTel'];
+     if(isset($_POST['grpRender']))
+     {
+         $sex=$_POST['grpRender'];
+     }
+     $date=$_POST['slDate'];
+     $month=$_POST['slMonth'];
+     $year=$_POST['slYear'];
+     $err="";
+     if($us==""||$pass1==""||$pass2==""||$fullname==""||$email=="" ||$address==""||!isset($sex))
+     {
+         $err.="<li>Enter fields with mark(*), please !</li>";
+     }
+     else if(strlen($pass1)<8){
+         $err.="<li>Password must be greater than or equal to eight characters</li>";
+     }
+     else if($pass1!=$pass2){
+        $err.="<li>Password and confirm password must be the same</li>";
     }
-    $date = $_POST['slDate'];
-    $month = $_POST['slMonth'];
-    $year = $_POST['slYear'];
-
-    $err ="";
-    if($us==""||$address=="" ||$pass1=="" ||$fullname==""||$email==""||$tel==""||!isset($sex))
-    {
-        $err.="<li>Enter fields with mark(*), please</li>";
+    else if( $_POST['slDate']=="0"||$_POST['slMonth']=="0"||$_POST['slYear']=="0"){
+        $err.="<li>Chosing fully information of birth again , please!</li>";
     }
-    if(strlen($pass1)<=5)
-    {
-        $err.="<li>Password must be greater than 5 chars</li>";
-    }
-    if($pass1!=$pass2)
-    {
-        $err.="<li>Password and confirm password are the same</li>";
-    }
-    if($_POST['slYear']=="0")
-    {
-        $err.="<li>Choose Year of Birth, please</li>";
-
-    }
-    if($err!="")
-    {
+    if($err!=""){
         echo $err;
     }
     else{
-
         include_once("connection.php");
         $pass=md5($pass1);
-        $sq="SELECT * FROM customer WHERE username='$us' OR email='$email'";
-        $res= pg_query($conn,$sq);
-
-        // neu khong bi trung email va user
-        if(pg_num_rows($res)==0)
-        {
-            pg_query($conn,"INSERT INTO customer (username, password, custname, gender, address, telephone,
-             email, cusdate, cusmonth, cusyear, ssn, activecode, state)
-             VALUES ('$us','$pass','$fullname','$sex', '$address', '$tel', '$email',
-              $date, $month, $year,'','',0)") or die(pg_error($conn));
-             echo"You have registered successfully";
-
+        $sq="select * from customer where username='$us' or email='$email'";
+        $res=mysqli_query($conn,$sq);
+        if(mysqli_num_rows($res)==0){
+            mysqli_query($conn,"Insert into customer (username,password,custname,gender,address,telephone,email,cusdate,cusmonth,cusyear,ssn,activecode,state) values('$us','$pass','$fullname','$sex','$address','$tel','$email','$date','$month','$year','','',0)")
+            or die(mysqli_error($conn));
+            echo"You have registered successfully";
         }
-        else 
-        {
-            echo "Username or email already exists";
+        else{
+            echo"Username or Email already exist";
         }
-       
     }
-
-}
-?>
- 
+ }
+ ?>
 <div class="container">
         <h2>Member Registration</h2>
 			 	<form id="form1" name="form1" method="post" action="" class="form-horizontal" role="form">
@@ -190,7 +172,6 @@ if(isset($_POST['btnRegister']))
                                       <label class="radio-inline"><input type="radio" name="grpRender" value="1" id="grpRender" />
                                       
                                       Female</label>
-
 							</div>
                           </div> 
                           
@@ -224,7 +205,7 @@ if(isset($_POST['btnRegister']))
                                   <select name="slYear" id="slYear" class="form-control">
                                     <option value="0">Choose Year</option>
                                     <?php
-                                        for($i=1970;$i<=2020;$i++)
+                                        for($i=1970;$i<=2021;$i++)
                                          {
                                              echo "<option value='".$i."'>".$i."</option>";
                                          }
@@ -235,7 +216,7 @@ if(isset($_POST['btnRegister']))
                       </div>	
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-						      <input type="submit"  class="site-btn" name="btnRegister" id="btnRegister" value="Register" />
+						      <input type="submit"  class="btn btn-primary" name="btnRegister" id="btnRegister" value="Register"/>
                               	
 						</div>
                      </div>
