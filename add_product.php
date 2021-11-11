@@ -82,7 +82,7 @@
 	{  
 		$id = $_POST["txtID"];
 		$proname=$_POST["txtName"];
-		$branch=$_POST['txtbranch'];
+		$branch=$_POST['txtBranch'];
 		$detail=$_POST['txtDetail'];
 		$price=$_POST['txtPrice'];
 		$qty=$_POST['txtQty'];
@@ -171,12 +171,10 @@
                 </div>  
                             
                 <div class="form-group">   
-                    <label for="" class="col-sm-2 control-label">Branch(*):  </label>
+                    <label for="" class="col-sm-12 control-label">Branch(*):  </label>
 							<div class="col-sm-10">
-                            
-							      <?php bind_Branch_List($conn); ?>
+							<?php bind_Branch_List($conn); ?>
 							</div>
-                </div> 
                 </div>
                             
                 <div class="form-group">   
