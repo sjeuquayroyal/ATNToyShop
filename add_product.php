@@ -114,8 +114,8 @@
 						copy($pic['tmp_name'],"ATNtoy/".$pic['name']);
 						$filePic =$pic['name'];
 						$sqlstring="INSERT INTO product(
-							product_id, product_name, price, branch_id, detaildesc, prodate, pro_qty, pro_image, cat_id)
-							VALUES('$id','$proname', $price,'$branch','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category')";
+							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id)
+							VALUES('$id','$proname', $price,'$short','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category')";
 							
 						pg_query($conn, $sqlstring);
 						echo'<li>You have add successfully</li>';
@@ -171,9 +171,12 @@
                 </div>  
                             
                 <div class="form-group">   
-                    <label for="" class="col-sm-12 control-label">Branch(*):  </label>
+                    <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
 							<div class="col-sm-10">
-							<?php bind_Branch_List($conn); ?>
+							      <input type="text" name="txtBranch" id="txtBranch" class="form-control" placeholder="Branch" value="<?php 
+								  bind_Branch_List($conn);  
+								  if(isset($branch)) echo $branch
+								  ?>"/>
 							</div>
                 </div>
                             
