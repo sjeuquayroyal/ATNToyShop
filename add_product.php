@@ -173,8 +173,8 @@
                 <div class="form-group">   
                     <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtBranch" id="txtBranch" class="form-control" placeholder="Branch" value="<?php 
-								  bind_Branch_List($conn);  
+							      <input bind_Branch_List($conn);   type= value="<?php 
+								  
 								  if(isset($branch)) echo $branch
 								  ?>"/>
 							</div>
