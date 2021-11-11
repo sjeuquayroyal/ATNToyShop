@@ -24,9 +24,9 @@
 		if(isset($_GET["id"]))
 		{
 			$id = $_GET['id'];
-			$result = pg_query($conn, "SELECT * from branch where branch_id = '$id'");
+			$result = pg_query($conn, "SELECT * from branch where smalldesc = '$id'");
 			$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
-			$branch_id = $row['branch_id'];
+			$smalldesc = $row['smalldesc'];
 			$branch_name = $row['branch_name'];
 	?>
 <div class="container">
@@ -36,7 +36,7 @@
 						    <label for="txtTen" class="col-sm-2 control-label">Branch ID(*):  </label>
 							<div class="col-sm-10">
 								  <input type="text" name="txtID" id="txtID" class="form-control" placeholder="Branch ID" readonly 
-								  value='<?php echo $row['branch_id'] ?>'>
+								  value='<?php echo $row['smalldesc'] ?>'>
 							</div>
 					</div>	
 				 <div class="form-group">
@@ -74,7 +74,7 @@
 			}
 			else
 			{
-				pg_query($conn, "UPDATE branch set branch_name = '$name' where branch_id = '$id'");
+				pg_query($conn, "UPDATE branch set branch_name = '$name' where smalldesc = '$id'");
 				echo '<meta http-equiv="refresh" content="0;URL =?page=branch"/>';
 			}
 		}
