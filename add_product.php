@@ -77,22 +77,12 @@
 			echo"</select>";
 
 	}
-	function bind_Branch_List($conn){
-		$sqlstring ="SELECT branch_id, branch_name from branch";
-		$result= pg_query($conn, $sqlstring);
-		echo"<SELECT name ='BranchList'class='form-control '
-			<option value='0'>Choose branch</option>";
-			while($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
-				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_name']. "</option>";
-			}
-			echo"</select>";
-	}
 
 	if(isset($_POST["btnAdd"]))
 	{  
 		$id = $_POST["txtID"];
 		$proname=$_POST["txtName"];
-		$branch=$_POST['txtBranch'];
+		$short=$_POST['txtShort'];
 		$detail=$_POST['txtDetail'];
 		$price=$_POST['txtPrice'];
 		$qty=$_POST['txtQty'];
@@ -176,17 +166,15 @@
                     <label for="" class="col-sm-2 control-label">Product category(*):  </label>
 							<div class="col-sm-10">
                             
-							<input type=<?php bind_Branch_List($conn); ?> name="txtBranch" id="txtBranch" class="form-control" placeholder="Price" value="<?php if(isset($branch)) echo $branch?>"/>
-							      
+							      <?php bind_Category_List($conn); ?>
 							</div>
                 </div>  
                             
                 <div class="form-group">   
                     <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
-					<div class="col-sm-10">
-                            
-							<?php bind_Branch_List($conn); ?>
-					  </div>
+							<div class="col-sm-10">
+							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Short description" value="<?php if(isset($short)) echo $short?>"/>
+							</div>
                 </div>
                             
                 <div class="form-group">   
