@@ -1,4 +1,3 @@
-
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
         <div class="container">
@@ -76,12 +75,12 @@
 			echo"</select>";
 	}
 	function bind_Branch_List($conn){
-		$sqlstring ="SELECT smalldesc, branch_name from branch";
+		$sqlstring ="SELECT branch_id, branch_name from branch";
 		$result= pg_query($conn, $sqlstring);
 		echo"<SELECT name ='BranchList'class='form-control '
 			<option value='0'>Choose branch</option>";
 			while($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
-				echo"<OPTION value='".$row['smalldesc']."'>".$row['branch_name']. "</option>";
+				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_name']. "</option>";
 			}
 			echo"</select>";
 	}
@@ -114,7 +113,7 @@
 		}
 		else{
 			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png" ||$pic['type']=="image/gif"){
-				if($pic['size']<=99999999){
+				if($pic['size']<=9999999){
 					$sq="SELECT * from product where product_id='$id'or product_name='$proname'";
                     $result= pg_query($conn,$sq);
                     
@@ -178,10 +177,15 @@
 							</div>
                 </div>  
                             
-               
+                <div class="form-group">   
+                    <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
+							<div class="col-sm-10">
+							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Short description" value="<?php if(isset($short)) echo $short?>"/>
+							</div>
+                </div>
 
 				<div class="form-group">   
-                    <label for="" class="col-sm-2 control-label"><br/> Branch(*):  </label>
+                    <label for="" class="col-sm-2 control-label">Branch(*):  </label>
 							<div class="col-sm-10">
                             
 							      <?php bind_Branch_List($conn); ?>
@@ -189,7 +193,7 @@
                 </div> 
                             
                 <div class="form-group">   
-                    <label for="lblDetail" class="col-sm-2 control-label"><br/>Detail Description(*):  </label>
+                    <label for="lblDetail" class="col-sm-2 control-label">Detail Description(*):  </label>
 							<div class="col-sm-10">
 							      <textarea type="text" name="txtDetail" id="txtDetail" class="form-control" style="height: 150px" row="4" value=""></textarea>
 							</div>
