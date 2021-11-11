@@ -176,7 +176,8 @@
                     <label for="" class="col-sm-2 control-label">Product category(*):  </label>
 							<div class="col-sm-10">
                             
-							      <?php bind_Category_List($conn); ?>
+							<input type=<?php bind_Category_List($conn); ?> name="txtBranch" id="txtBranch" class="form-control" placeholder="Price" value="<?php if(isset($branch)) echo $branch?>"/>
+							      
 							</div>
                 </div>  
                             
