@@ -153,10 +153,6 @@
                                         
                                         <h5><?php echo $row["cat_name"]; ?></h5>
                                     </td>
-                                    <td class="shoping__cart__item">
-                                        
-                                        <h5><?php echo $row["cat_name"]; ?></h5>
-                                    </td>
                                     <td class="shoping__cart__price">
                                         $<?php echo $row["price"]; ?>
                                     </td>
