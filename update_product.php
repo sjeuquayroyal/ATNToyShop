@@ -41,7 +41,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 	}
 	function bind_Branch_List($conn, $selectedValue)
 	{
-		$sqlString = "SELECT smalldesc, branch_name from branch";
+		$sqlString = "SELECT branch_id, branch_name from branch";
 		$result = pg_query($conn, $sqlString);
 echo "<SELECT name ='BranchList' class='from-control'>
 			<option value='0'>Choose Branch</option>";
@@ -49,11 +49,11 @@ echo "<SELECT name ='BranchList' class='from-control'>
 			{
 				if($row['branch_name']==$selectedValue)
 				{
-					echo "<option value ='".$row['smalldesc']."' selected>".$row['branch_name']."</option>";
+					echo "<option value ='".$row['branch_id']."' selected>".$row['branch_name']."</option>";
 				}
 				else
 				{
-					echo "<option value='".$row['smalldesc']."'>".$row['branch_name']."</option>";
+					echo "<option value='".$row['branch_id']."'>".$row['branch_name']."</option>";
 				}
 			}
 		echo "</select>";
@@ -180,7 +180,7 @@ echo "<SELECT name ='BranchList' class='from-control'>
 				if ($pic['type']=="image/jpg" || $pic['type']=="image/jpeg"|| 
 					$pic['type']=="image/png" || $pic['type']=="image/gif")
 				{
-					if($pic['size']<=99999999)
+					if($pic['size']<=614400)
 					{
 						
 							copy($pic['tmp_name'], "img/".$pic['name']);
