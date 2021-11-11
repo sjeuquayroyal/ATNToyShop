@@ -131,7 +131,7 @@
                             <?php //
                                  if(isset($_GET['id'])){
                                     $id=$_GET['id'];
-                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name 
+                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, product.smalldesc 
                                     from product, category where product.cat_id = category.cat_id and '$id'=category.cat_id ");
             
                                 }else{
@@ -154,7 +154,7 @@
                                     </td>
                                     <td class="shoping__cart__item">
                                         
-                                        <h5><?php echo $row["cat_name"]; ?></h5>
+                                        <h5><?php echo $row["smalldesc"]; ?></h5>
                                     </td>
                                     <td class="shoping__cart__price">
                                         $<?php echo $row["price"]; ?>
