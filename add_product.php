@@ -173,7 +173,7 @@
                 <div class="form-group">   
                     <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
 							<div class="col-sm-10">
-							      <input bind_Branch_List($conn);   type= value="<?php 
+							      <input <?php bind_Branch_List($conn); ?>  type= value="<?php 
 								  
 								  if(isset($branch)) echo $branch
 								  ?>"/>
