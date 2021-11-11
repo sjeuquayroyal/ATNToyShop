@@ -96,8 +96,7 @@
                                 <tr>
                                     <th class="shoping__product">Products</th>
                                     <th class="shoping__product">Category</th>
-                                    
-                                    
+                                    <th class="shoping__product">Branch</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th><a href="?page=addp">Add</a></th>
@@ -148,6 +147,10 @@
                                     <td class="shoping__cart__item" style="width: 1000px">
                                         <img src="ATNtoy/<?php echo $row['pro_image'] ?>" alt="">
                                         <h5><?php echo $row["product_name"]; ?></h5>
+                                    </td>
+                                    <td class="shoping__cart__item">
+                                        
+                                        <h5><?php echo $row["cat_name"]; ?></h5>
                                     </td>
                                     <td class="shoping__cart__item">
                                         
