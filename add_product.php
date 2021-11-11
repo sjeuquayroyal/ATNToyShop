@@ -1,6 +1,6 @@
 
-	<!-- Hero Section Begin -->
-    <section class="hero hero-normal">
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -44,7 +44,6 @@
         </div>
     </section>
     <!-- Hero Section End -->
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
         <div class="container">
@@ -54,7 +53,7 @@
                         <h2>Adding</h2>
                         <div class="breadcrumb__option">
                             <a href="?page=content">Home</a>
-                            <a href="?page=content">Product</a>
+                            <a href="?page=content">Recorded</a>
                             <span>Add New</span>
                         </div>
                     </div>
@@ -75,7 +74,16 @@
 				echo"<OPTION value='".$row['cat_id']."'>".$row['cat_name']. "</option>";
 			}
 			echo"</select>";
-
+	}
+	function bind_Branch_List($conn){
+		$sqlstring ="SELECT smalldesc, branch_name from branch";
+		$result= pg_query($conn, $sqlstring);
+		echo"<SELECT name ='BranchList'class='form-control '
+			<option value='0'>Choose branch</option>";
+			while($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
+				echo"<OPTION value='".$row['smalldesc']."'>".$row['branch_name']. "</option>";
+			}
+			echo"</select>";
 	}
 
 	if(isset($_POST["btnAdd"]))
@@ -83,6 +91,7 @@
 		$id = $_POST["txtID"];
 		$proname=$_POST["txtName"];
 		$short=$_POST['txtShort'];
+		$branch=$_POST['txtbranch'];
 		$detail=$_POST['txtDetail'];
 		$price=$_POST['txtPrice'];
 		$qty=$_POST['txtQty'];
@@ -104,18 +113,18 @@
 			echo"<ul>$err</ul>";
 		}
 		else{
-			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png"||$pic['type']=="image/gif"){
-				if($pic['size']<=9999999999){
+			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png" ||$pic['type']=="image/gif"){
+				if($pic['size']<=99999999){
 					$sq="SELECT * from product where product_id='$id'or product_name='$proname'";
                     $result= pg_query($conn,$sq);
                     
 					if(pg_num_rows($result)==0)
 					{
-						copy($pic['tmp_name'],"ATNtoy/".$pic['name']);
+						copy($pic['tmp_name'],"img/".$pic['name']);
 						$filePic =$pic['name'];
 						$sqlstring="INSERT INTO product(
-							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id)
-							VALUES('$id','$proname', $price,'$short','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category')";
+							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id, branch)
+							VALUES('$id','$proname', $price,'$short','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category', '$branch')";
 							
 						pg_query($conn, $sqlstring);
 						echo'<li>You have add successfully</li>';
@@ -153,7 +162,6 @@
 								  placeholder="Product Name" value=''/>
 							</div>
                 </div>   
-                
                           
                 <div class="form-group">  
                     <label for="lblGia" class="col-sm-2 control-label">Price(*):  </label>
@@ -170,12 +178,15 @@
 							</div>
                 </div>  
                             
-                <div class="form-group">   
-                    <label for="lblShort" class="col-sm-12 control-label">Branch(*):  </label>
+               
+
+				<div class="form-group">   
+                    <label for="" class="col-sm-2 control-label">Branch(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Branch" value="<?php if(isset($short)) echo $short?>"/>
+                            
+							      <?php bind_Branch_List($conn); ?>
 							</div>
-                </div>
+                </div> 
                             
                 <div class="form-group">   
                     <label for="lblDetail" class="col-sm-2 control-label">Detail Description(*):  </label>
@@ -209,6 +220,3 @@
 			</form>
 			</div>
 </div>
-
-
-
