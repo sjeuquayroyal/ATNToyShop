@@ -1,4 +1,3 @@
-<!-- Hero Section Begin -->
 <section class="hero hero-normal">
         <div class="container">
             <div class="row">
@@ -7,11 +6,14 @@
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
+                            
+                            
                         </div>
+                        
                         <ul>
-                            <li><a href="#">One Piece</a></li>
-                            <li><a href="#">Tokyo Revenger</a></li>
-                            <li><a href="#">Attack on Titan</a></li>
+                        <li ><a  href="?page=pm">All</a></li>
+
+                        <?php Category_List($conn ); ?>
                             
                         </ul>
                     </div>
@@ -23,6 +25,7 @@
                                 <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
+                                    
                                 </div>
                                 <input type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
@@ -43,6 +46,7 @@
         </div>
     </section>
     <!-- Hero Section End -->
+
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
         <div class="container">

@@ -1,9 +1,4 @@
 
-
-
- 
-
-    
 <script>
         function deleteConfirm(){
             if(confirm("Are you sure?")){
@@ -14,61 +9,8 @@
             }
         }
     </script>
-    
-   
-
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                            
-                            
-                        </div>
-                        
-                        <ul>
-                        <li ><a  href="?page=pm">All</a></li>
-
-                        <?php Category_List($conn ); ?>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                    
-                                </div>
-                                <input type="text" placeholder="What do you need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+84 90 785 3006</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
-
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="ATNimg/one.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -96,7 +38,8 @@
                                 <tr>
                                     <th class="shoping__product">Products</th>
                                     <th class="shoping__product">Category</th>
-                                    <th class="shoping__product">Branch</th>
+                                    
+                                    
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th><a href="?page=addp">Add</a></th>
@@ -116,10 +59,8 @@
                                         pg_query($conn,"DELETE FROM product WHERE product_id='$id'");
                                         echo '<meta http-equiv="refresh" content="0;URL =?page=pm"/>'
                                         ?>
-                                        <!-- <script> document.getElementById("CMM").click();</script>  -->
                                         
-                                        <?php
-                                        
+                                        <?php                                        
                                     }
                                 ?>
                                     
@@ -128,14 +69,14 @@
                                 }
                                 ?>
                             <tbody>
-                            <?php //
+                            <?php 
                                  if(isset($_GET['id'])){
                                     $id=$_GET['id'];
-                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, product.smalldesc 
+                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name 
                                     from product, category where product.cat_id = category.cat_id and '$id'=category.cat_id ");
             
                                 }else{
-                                $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, product.smalldesc
+                                $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name 
                                     from product, category where product.cat_id = category.cat_id ");
                                 }
                                 while($row=pg_fetch_array($result, NULL, PGSQL_ASSOC)) { 
@@ -145,16 +86,12 @@
 
                                 <tr>
                                     <td class="shoping__cart__item" style="width: 1000px">
-                                        <img src="ATNtoy/<?php echo $row['pro_image'] ?>" alt="">
+                                        <img src="img/<?php echo $row['pro_image'] ?>" alt="">
                                         <h5><?php echo $row["product_name"]; ?></h5>
                                     </td>
                                     <td class="shoping__cart__item">
                                         
                                         <h5><?php echo $row["cat_name"]; ?></h5>
-                                    </td>
-                                    <td class="shoping__cart__item">
-                                        
-                                        <h5><?php echo $row["smalldesc"]; ?></h5>
                                     </td>
                                     <td class="shoping__cart__price">
                                         $<?php echo $row["price"]; ?>
@@ -189,9 +126,3 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
-    
-	
-	
-
-   
-    
