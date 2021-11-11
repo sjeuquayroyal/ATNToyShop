@@ -363,6 +363,16 @@ include_once("connection.php");
         } else if($page=="prof")
         {
             include_once('profile.php');
+         } else if($page=="branch")
+         {
+             include_once('branch.php');
+         }
+        else if($page=="upbr")
+        {
+            include_once('update_branch.php');
+        } else if($page=="addbr")
+        {
+            include_once('add_branch.php');
         }
         
         else if($page=="Fea")
