@@ -119,7 +119,7 @@
 		}
 		else{
 			if($pic['type']=="ATNtoy/jpg"||$pic['type']=="ATNtoy/jpeg"||$pic['type']=="ATNtoy/png"||$pic['type']=="ATNtoy/gif"){
-				if($pic['size']<=9999999999){
+				if($pic['size']<=99999){
 					$sq="SELECT * from product where product_id='$id'or product_name='$proname'";
                     $result= pg_query($conn,$sq);
                     
