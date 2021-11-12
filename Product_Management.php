@@ -132,12 +132,12 @@
                             <?php //
                                  if(isset($_GET['id'])){
                                     $id=$_GET['id'];
-                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, branch. branch_name 
-                                    from product, category, branch where product.cat_id = category.cat_id and product.branch_id=branch.branch.id  and'$id'=category.cat_id ");
+                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, /*branch. branch_name*/ 
+                                    from product, category, /*branch*/ where product.cat_id = category.cat_id /*and product.branch_id=branch.branch.id*/  and'$id'=category.cat_id ");
             
                                 }else{
-                                $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, branch. branch_name 
-                                    from product, category, branch where product.cat_id = category.cat_id and product.branch_id=branch.branch.id ");
+                                $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, /*branch. branch_name */
+                                    from product, category, /*branch*/ where product.cat_id = category.cat_id /*and product.branch_id=branch.branch.id*/ ");
                                 }
                                 while($row=pg_fetch_array($result, NULL, PGSQL_ASSOC)) { 
                                     ?>
