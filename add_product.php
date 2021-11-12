@@ -180,18 +180,18 @@
                     <label for="" class="col-sm-2 control-label">Product category(*):</label>
 							<div class="col-sm-10">
                             
-							      <?php bind_Category_List($conn); ?>
+							      <?php bind_Category_List($conn); <br>?>
 							</div>
                 </div>  
                             
                 <div class="form-group">   
-                    <label for="" class="col-sm-2 control-label"><br>Branch(*):</label>
+                    <label for="" class="col-sm-2 control-label">Branch(*):</label>
 							<div class="col-sm-10">
-							<?php bind_Branch_List($conn); ?>
+							<?php bind_Branch_List($conn); <<br>?>
 							</div>
 				</div>            
                 <div class="form-group">   
-                    <label for="lblDetail" class="col-sm-2 control-label"><br>Detail Description(*):  </label>
+                    <label for="lblDetail" class="col-sm-2 control-label">Detail Description(*):  </label>
 							<div class="col-sm-10">
 							      <textarea type="text" name="txtDetail" id="txtDetail" class="form-control" style="height: 150px" row="4" value=""></textarea>
 							</div>
