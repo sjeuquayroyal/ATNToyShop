@@ -130,7 +130,7 @@
                                     from product, category where product.cat_id = category.cat_id and '$id'=category.cat_id ");
             
                                 }else{
-                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name 
+                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name,product.branch_id, product.price, product.pro_qty, product.pro_image, category.cat_name 
                                     from product, category where product.cat_id = category.cat_id ");
                                 }
                                 while($row=pg_fetch_array($result, NULL, PGSQL_ASSOC)) { 
@@ -147,7 +147,7 @@
                                         
                                         <h5><?php echo $row["cat_name"]; ?></h5>
                                     </td>
-                                    <td class="shoping__cart__price">
+                                    <td class="shoping__cart__name">
                                         $<?php echo $row["branch_id"]; ?>
                                     </td>
                                     <td class="shoping__cart__price">
