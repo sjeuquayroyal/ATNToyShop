@@ -1,9 +1,3 @@
-
-
-
- 
-
-    
 <script>
         function deleteConfirm(){
             if(confirm("Are you sure?")){
@@ -25,9 +19,10 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                            
-                            
+                            <span>All Departments</span>
+                        <ul>
+                            <?php Department($conn); ?>
+                        </ul>
                         </div>
                         
                         <ul>
@@ -47,7 +42,7 @@
                                     <span class="arrow_carrot-down"></span>
                                     
                                 </div>
-                                <input type="text" placeholder="What do you need?">
+                                <input type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -56,7 +51,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 90 785 3006</h5>
+                                <h5>+84 77 444 6678</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -68,7 +63,7 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/Background.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -83,7 +78,7 @@
             </div>
         </div>
     </section>
-    <!-- Breadcrumb Section End -->
+<!-- Breadcrumb Section End -->
 
     <!-- Product Management Section Begin -->
     <section class="shoping-cart spad">
@@ -96,8 +91,7 @@
                                 <tr>
                                     <th class="shoping__product">Products</th>
                                     <th class="shoping__product">Category</th>
-                                    <th class="shoping__product">Branch</th>
-                                    
+                                   
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th><a href="?page=addp">Add</a></th>
@@ -132,12 +126,12 @@
                             <?php //
                                  if(isset($_GET['id'])){
                                     $id=$_GET['id'];
-                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, /*branch. branch_name*/ 
-                                    from product, category, /*branch*/ where product.cat_id = category.cat_id /*and product.branch_id=branch.branch.id*/  and'$id'=category.cat_id ");
+                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name 
+                                    from product, category where product.cat_id = category.cat_id and '$id'=category.cat_id ");
             
                                 }else{
-                                $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name, /*branch. branch_name */
-                                    from product, category, /*branch*/ where product.cat_id = category.cat_id /*and product.branch_id=branch.branch.id*/ ");
+                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name 
+                                    from product, category where product.cat_id = category.cat_id ");
                                 }
                                 while($row=pg_fetch_array($result, NULL, PGSQL_ASSOC)) { 
                                     ?>
@@ -146,21 +140,16 @@
 
                                 <tr>
                                     <td class="shoping__cart__item" style="width: 1000px">
-                                        <img src="ATNtoy/<?php echo $row['pro_image'] ?>" alt="">
+                                        <img src="img/<?php echo $row['pro_image'] ?>" alt="">
                                         <h5><?php echo $row["product_name"]; ?></h5>
                                     </td>
                                     <td class="shoping__cart__item">
                                         
                                         <h5><?php echo $row["cat_name"]; ?></h5>
                                     </td>
-                                    <td class="shoping__cart__item">
-                                        
-                                        <h5><?php echo $row["branch_name"]; ?></h5>
-                                    </td>
                                     <td class="shoping__cart__price">
                                         $<?php echo $row["price"]; ?>
                                     </td>
-                                    
                                     <td class="shoping__cart__price">
                                         
                                             
@@ -190,10 +179,4 @@
             
         </div>
     </section>
-    <!-- Shoping Cart Section End -->
-    
-	
-	
-
-   
-    
+    <!-- Shopping Cart Section End -->
