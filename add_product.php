@@ -7,10 +7,12 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All toy brands</span>
+                            <span>All departments</span>
                         </div>
                         <ul>
-						    <?php Department($conn); ?>
+                            <li><a href="#">Figure</a></li>
+                            <li><a href="#">Pillow</a></li>
+                            <li><a href="#">Image</a></li>
                             
                         </ul>
                     </div>
@@ -32,7 +34,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 09 078 530 06</h5>
+                                <h5> +84 09 0785 3006</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -44,7 +46,7 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/toybackground.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/Background.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -52,7 +54,7 @@
                         <h2>Adding</h2>
                         <div class="breadcrumb__option">
                             <a href="?page=content">Home</a>
-                            <a href="?page=content">Popular Toys</a>
+                            <a href="?page=content">Recorded</a>
                             <span>Add New</span>
                         </div>
                     </div>
@@ -73,9 +75,7 @@
 				echo"<OPTION value='".$row['cat_id']."'>".$row['cat_name']. "</option>";
 			}
 			echo"</select>";
-
 	}
-
 	function bind_Branch_List($conn){
 		$sqlstring ="SELECT branch_id, branch_name from branch";
 		$result= pg_query($conn, $sqlstring);
@@ -92,8 +92,8 @@
 		$id = $_POST["txtID"];
 		$proname=$_POST["txtName"];
 		$short=$_POST['txtShort'];
-		$detail=$_POST['txtDetail'];
 		$branch=$_POST['txtbranch'];
+		$detail=$_POST['txtDetail'];
 		$price=$_POST['txtPrice'];
 		$qty=$_POST['txtQty'];
         $pic=$_FILES['txtImage'];
@@ -125,7 +125,7 @@
 						copy($pic['tmp_name'],"ATNtoy/".$pic['name']);
 						$filePic =$pic['name'];
 						$sqlstring="INSERT INTO product(
-							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id, branch_name)
+							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id, branch_id)
 							VALUES('$id','$proname', $price,'$short','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category', '$branchlist')";
 							
 						pg_query($conn, $sqlstring);
@@ -164,7 +164,6 @@
 								  placeholder="Product Name" value=''/>
 							</div>
                 </div>   
-                
                           
                 <div class="form-group">  
                     <label for="lblGia" class="col-sm-2 control-label">Price(*):  </label>
@@ -180,7 +179,6 @@
 							      <?php bind_Category_List($conn); ?>
 							</div>
                 </div>  
-				
                             
                 <div class="form-group">   
                     <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
@@ -195,7 +193,7 @@
                             
 							      <?php bind_Branch_List($conn); ?>
 							</div>
-                </div>  
+                </div> 
                             
                 <div class="form-group">   
                     <label for="lblDetail" class="col-sm-2 control-label">Detail Description(*):  </label>
@@ -203,7 +201,6 @@
 							      <textarea type="text" name="txtDetail" id="txtDetail" class="form-control" style="height: 150px" row="4" value=""></textarea>
 							</div>
                 </div>
-
                             
             	<div class="form-group">  
                     <label for="lblQty" class="col-sm-2 control-label">Quantity(*):  </label>
@@ -230,6 +227,3 @@
 			</form>
 			</div>
 </div>
-
-
-
