@@ -10,7 +10,9 @@
                             <span>All departments</span>
                         </div>
                         <ul>
-						<?php Department($conn ); ?>
+                            <li><a href="#">Vinyl</a></li>
+                            <li><a href="#">Audio</a></li>
+                            <li><a href="#">Cassette</a></li>
                             
                         </ul>
                     </div>
@@ -32,7 +34,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5> +84 22 111 644</h5>
+                                <h5>+84 90 785 3006</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -44,7 +46,7 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/background-đẹp-3-1024x682.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -75,30 +77,31 @@
 			echo"</select>";
 
 	}
-	function bind_Store_List($conn){
-		$sqlstring ="SELECT storeid, storename from store";
+	function bind_Branch_List($conn){
+		$sqlstring ="SELECT branch_id, branch_name from branch";
 		$result= pg_query($conn, $sqlstring);
-		echo"<SELECT name ='StoreList'class='form-control '
-			<option value='0'>Choose Store</option>";
+		echo"<SELECT name ='BranchList'class='form-control '
+			<option value='0'>Choose branch</option>";
 			while($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
-				echo"<OPTION value='".$row['storeid']."'>".$row['storename']. "</option>";
+				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_name']. "</option>";
 			}
 			echo"</select>";
 
 	}
+	
+
 
 	if(isset($_POST["btnAdd"]))
 	{  
 		$id = $_POST["txtID"];
 		$proname=$_POST["txtName"];
-		$store =$_POST["txtStore"];
-		$short=$_POST['txtShort'];
+		$branch=$_POST['txtBranch'];
 		$detail=$_POST['txtDetail'];
 		$price=$_POST['txtPrice'];
 		$qty=$_POST['txtQty'];
         $pic=$_FILES['txtImage'];
         $category=$_POST['CategoryList'];
-		$store=$_POST['StoreList'];
+		$branchlist=$_POST['BrandList'];
 		
 		$err="";
 		
@@ -115,18 +118,18 @@
 			echo"<ul>$err</ul>";
 		}
 		else{
-			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png" ||$pic['type']=="image/gif"){
-				if($pic['size']<=614400){
+			if($pic['type']=="ATNtoy/jpg"||$pic['type']=="ATNtoy/jpeg"||$pic['type']=="ATNtoy/png"||$pic['type']=="ATNtoy/gif"){
+				if($pic['size']<=9999999999){
 					$sq="SELECT * from product where product_id='$id'or product_name='$proname'";
                     $result= pg_query($conn,$sq);
                     
 					if(pg_num_rows($result)==0)
 					{
-						copy($pic['tmp_name'],"img/".$pic['name']);
+						copy($pic['tmp_name'],"ATNtoy/".$pic['name']);
 						$filePic =$pic['name'];
 						$sqlstring="INSERT INTO product(
-							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id,storeid)
-							VALUES('$id','$proname', $price,'$short','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category','$store')";
+							product_id, product_name, price, branch_name, detaildesc, prodate, pro_qty, pro_image, cat_id)
+							VALUES('$id','$proname', $price,'$branch','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$branchlist')";
 							
 						pg_query($conn, $sqlstring);
 						echo'<li>You have add successfully</li>';
@@ -163,21 +166,13 @@
 								  <input type="text" name="txtName" id="txtName" class="form-control" 
 								  placeholder="Product Name" value=''/>
 							</div>
-                </div> 
-				  
-				<div class="form-group">   
-                    <label for="" class="col-sm-2 control-label">Product Store(*):  </label>
-							<div class="col-sm-10">
-                            
-							      <?php bind_Store_List($conn); ?>
-							</div>
-                </div>  
+                </div>   
+                
                           
                 <div class="form-group">  
                     <label for="lblGia" class="col-sm-2 control-label">Price(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtPrice" id="txtPrice" class="form-control" 
-								  placeholder="Price" value="<?php if(isset($price)) echo $price?>"/>
+							      <input type="text" name="txtPrice" id="txtPrice" class="form-control" placeholder="Price" value="<?php if(isset($price)) echo $price?>"/>
 							</div>
                  </div>   
 
@@ -190,12 +185,11 @@
                 </div>  
                             
                 <div class="form-group">   
-                    <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
+                    <label for="" class="col-sm-2 control-label">Branch(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Short description" value="<?php if(isset($short)) echo $short?>"/>
+							<?php bind_Branch_List($conn); ?>
 							</div>
-                </div>
-                            
+				</div>            
                 <div class="form-group">   
                     <label for="lblDetail" class="col-sm-2 control-label">Detail Description(*):  </label>
 							<div class="col-sm-10">
