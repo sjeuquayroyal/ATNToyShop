@@ -7,12 +7,10 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>All toy brands</span>
                         </div>
                         <ul>
-                            <li><a href="#">Vinyl</a></li>
-                            <li><a href="#">Audio</a></li>
-                            <li><a href="#">Cassette</a></li>
+						    <?php Department($conn); ?>
                             
                         </ul>
                     </div>
@@ -34,7 +32,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 90 785 3006</h5>
+                                <h5>+84 09 078 530 06</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -46,7 +44,7 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/toybackground.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -54,7 +52,7 @@
                         <h2>Adding</h2>
                         <div class="breadcrumb__option">
                             <a href="?page=content">Home</a>
-                            <a href="?page=content">Recorded</a>
+                            <a href="?page=content">Popular Toys</a>
                             <span>Add New</span>
                         </div>
                     </div>
@@ -77,6 +75,7 @@
 			echo"</select>";
 
 	}
+
 	function bind_Branch_List($conn){
 		$sqlstring ="SELECT branch_id, branch_name from branch";
 		$result= pg_query($conn, $sqlstring);
@@ -86,22 +85,20 @@
 				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_name']. "</option>";
 			}
 			echo"</select>";
-
 	}
-	
-
 
 	if(isset($_POST["btnAdd"]))
 	{  
 		$id = $_POST["txtID"];
 		$proname=$_POST["txtName"];
-		$branch=$_POST['txtBranch'];
+		$short=$_POST['txtShort'];
 		$detail=$_POST['txtDetail'];
+		$branch=$_POST['txtbranch'];
 		$price=$_POST['txtPrice'];
 		$qty=$_POST['txtQty'];
         $pic=$_FILES['txtImage'];
         $category=$_POST['CategoryList'];
-		$branchlist=$_POST['BrandList'];
+		$branchlist=$_POST['BranchList'];
 		
 		$err="";
 		
@@ -118,18 +115,18 @@
 			echo"<ul>$err</ul>";
 		}
 		else{
-			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png"||$pic['type']=="image/gif"){
+			if($pic['type']=="image/jpg"||$pic['type']=="image/jpeg"||$pic['type']=="image/png" ||$pic['type']=="image/gif"){
 				if($pic['size']<=614400){
 					$sq="SELECT * from product where product_id='$id'or product_name='$proname'";
                     $result= pg_query($conn,$sq);
                     
 					if(pg_num_rows($result)==0)
 					{
-						copy($pic['tmp_name'],"image/".$pic['name']);
+						copy($pic['tmp_name'],"ATNtoy/".$pic['name']);
 						$filePic =$pic['name'];
 						$sqlstring="INSERT INTO product(
-							product_id, product_name, price, branch_id, detaildesc, prodate, pro_qty, pro_image, cat_id)
-							VALUES('$id','$proname', $price,'$branch','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$branchlist')";
+							product_id, product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id, branch_name)
+							VALUES('$id','$proname', $price,'$short','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$category', '$branchlist')";
 							
 						pg_query($conn, $sqlstring);
 						echo'<li>You have add successfully</li>';
@@ -183,19 +180,30 @@
 							      <?php bind_Category_List($conn); ?>
 							</div>
                 </div>  
+				
                             
                 <div class="form-group">   
-                    <label for="" class="col-sm-2 control-label"><br\>Branch(*):  </label>
+                    <label for="lblShort" class="col-sm-12 control-label">Short description(*):  </label>
 							<div class="col-sm-10">
-							<?php bind_Branch_List($conn); ?>
+							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Short description" value="<?php if(isset($short)) echo $short?>"/>
 							</div>
-				</div>            
+                </div>
+
+				<div class="form-group">   
+                    <label for="" class="col-sm-2 control-label">Branch(*):  </label>
+							<div class="col-sm-10">
+                            
+							      <?php bind_Branch_List($conn); ?>
+							</div>
+                </div>  
+                            
                 <div class="form-group">   
-                    <label for="lblDetail" class="col-sm-2 control-label"><br\>Detail Description(*):  </label>
+                    <label for="lblDetail" class="col-sm-2 control-label">Detail Description(*):  </label>
 							<div class="col-sm-10">
 							      <textarea type="text" name="txtDetail" id="txtDetail" class="form-control" style="height: 150px" row="4" value=""></textarea>
 							</div>
                 </div>
+
                             
             	<div class="form-group">  
                     <label for="lblQty" class="col-sm-2 control-label">Quantity(*):  </label>
