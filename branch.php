@@ -29,7 +29,7 @@
                         <ul>
                         <li ><a  href="?page=branch">All</a></li>
 
-                        <?php Category_List($conn ); ?>
+                        <?php branch_List($conn ); ?>
                             
                         </ul>
                     </div>
@@ -38,12 +38,12 @@
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
-                                <div class="hero__search__categories">
+                                <div class="hero__search__branch">
                                     All Branches
                                     <span class="arrow_carrot-down"></span>
                                     
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
