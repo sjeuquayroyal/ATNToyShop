@@ -83,7 +83,7 @@
 		echo"<SELECT name ='BranchList'class='form-control '
 			<option value='0'>Choose branch</option>";
 			while($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
-				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_id']. "</option>";
+				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_name']. "</option>";
 			}
 			echo"</select>";
 
