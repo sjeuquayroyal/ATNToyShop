@@ -38,12 +38,12 @@
                     <div class="hero__search">
                         <div class="hero__search__form">
                             <form action="#">
-                                <div class="hero__search__branch">
+                                <div class="hero__search__categories">
                                     All Branches
                                     <span class="arrow_carrot-down"></span>
                                     
                                 </div>
-                                <input type="text" placeholder="What do you need?">
+                                <input type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
