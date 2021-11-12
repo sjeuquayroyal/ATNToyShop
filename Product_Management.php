@@ -148,7 +148,7 @@
                                         <h5><?php echo $row["cat_name"]; ?></h5>
                                     </td>
                                     <td class="shoping__cart__name">
-                                        $<?php echo $row["branch_id"]; ?>
+                                        <?php echo $row["branch_name"]; ?>
                                     </td>
                                     <td class="shoping__cart__price">
                                         $<?php echo $row["price"]; ?>
