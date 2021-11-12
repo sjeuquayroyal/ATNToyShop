@@ -6,7 +6,7 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All toy brands</span>
+                            <span>All Department</span>
                         </div>
                         <ul>
 						    <?php Department($conn); ?>
@@ -37,7 +37,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 09 078 53006</h5>
+                                <h5>+84 15 151 0041</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -49,14 +49,14 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/background.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/background-đẹp-3-1024x682.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>Products Management</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
+                            <a href="?page=content">Home</a>
                             <span>Products Management</span>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
 	{
 		$sqlString = "SELECT cat_id, cat_name from category";
 		$result = pg_query($conn, $sqlString);
-echo "<SELECT name ='CategoryList' class='from-control'>
+		echo "<SELECT name ='CategoryList' class='from-control'>
 			<option value='0'>Choose Category</option>";
 			while ($row=pg_fetch_array($result,NULL, PGSQL_ASSOC))
 			{
@@ -87,21 +87,21 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 			}
 		echo "</select>";
 	}
-	function bind_Branch_List($conn, $selectedValue)
+	function bind_Store_List($conn, $selectedValue)
 	{
-		$sqlString = "SELECT branch_id, branch_name from category";
+		$sqlString = "SELECT storeid, storename from store";
 		$result = pg_query($conn, $sqlString);
-echo "<SELECT name ='BranchList' class='from-control'>
-			<option value='0'>Choose Branch</option>";
+		echo "<SELECT name ='StoreList' class='from-control'>
+			<option value='0'>Choose Store</option>";
 			while ($row=pg_fetch_array($result,NULL, PGSQL_ASSOC))
 			{
-				if($row['cat_id']==$selectedValue)
+				if($row['storeid']==$selectedValue)
 				{
-					echo "<option value ='".$row['cat_id']."' selected>".$row['cat_name']."</option>";
+					echo "<option value ='".$row['storeid']."' selected>".$row['storename']."</option>";
 				}
 				else
 				{
-					echo "<option value='".$row['cat_id']."'>".$row['cat_name']."</option>";
+					echo "<option value='".$row['storeid']."'>".$row['storename']."</option>";
 				}
 			}
 		echo "</select>";
@@ -109,18 +109,19 @@ echo "<SELECT name ='BranchList' class='from-control'>
 	if(isset($_GET['id']))
 	{
 		$id = $_GET['id'];
-		$sqlString = "SELECT product_name, price, branch_name, detaildesc, prodate, pro_qty, pro_image, cat_id from product where product_id='$id'";
+		$sqlString = "SELECT product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id, storeid from product where product_id='$id'";
 
 		$result = pg_query($conn, $sqlString);
 		$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
 
 		$proname = $row['product_name'];
-		$short = $row['branch'];
+		$short = $row['smalldesc'];
 		$detail = $row['detaildesc'];
 		$price = $row['price'];
 		$qty = $row['pro_qty'];
 		$pic = $row['pro_image'];
 		$category = $row['cat_id'];
+		$store = $row['storeid'];
 ?>
 <div class="container">
 	<h2>Updating Product</h2>
@@ -140,6 +141,13 @@ echo "<SELECT name ='BranchList' class='from-control'>
 								  placeholder="Product Name" value='<?php echo $row["product_name"]?>'/>
 							</div>
                 </div>   
+				<div class="form-group">   
+                    <label for="" class="col-sm-5 control-label">Product Store(*):  </label>
+							<div class="col-sm-10">
+								<?php bind_Store_List($conn, $store); ?>
+							      
+							</div>
+                </div>  
                 <div class="form-group">   
                     <label for="" class="col-sm-5 control-label">Product category(*):  </label>
 							<div class="col-sm-10">
@@ -155,7 +163,12 @@ echo "<SELECT name ='BranchList' class='from-control'>
 							</div>
                  </div>   
                             
-                
+                <div class="form-group">   
+                    <label for="lblShort" class="col-sm-5 control-label">Short description(*):  </label>
+							<div class="col-sm-10">
+							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Short description" value="<?php echo $short?>"/>
+							</div>
+                </div>
                             
                 <div class="form-group">   
                     <label for="lblDetail" class="col-sm-5 control-label">Detail Description(*):  </label>
@@ -178,12 +191,6 @@ echo "<SELECT name ='BranchList' class='from-control'>
 							      <input type="file" name="txtImage" id="txtImage" class="form-control" value=""/>
 							</div>
                 </div>
-				<div class="form-group">   
-                    <label for="lblShort" class="col-sm-5 control-label">Branch(*):  </label>
-							<div class="col-sm-10">
-							<?php bind_Branch_List($conn, $category); ?>
-							</div>
-                </div>
                         
 				<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
@@ -199,7 +206,8 @@ echo "<SELECT name ='BranchList' class='from-control'>
 	{
 		$id = $_POST['txtID'];
 		$proname = $_POST['txtName'];
-		$branch = $_POST['txtBranch'];
+		$store = $_POST['StoreList'];
+		$short = $_POST['txtShort'];
 		$detail = $_POST['txtDetail'];
 		$price = $_POST['txtPrice'];
 		$qty = $_POST['txtQty'];
@@ -226,11 +234,11 @@ echo "<SELECT name ='BranchList' class='from-control'>
 						// $result = mysqli_query($conn, $sql);
 						// if(mysqli_num_rows($result)=="0")
 						// {
-							copy($pic['tmp_name'], "ATNtoy/".$pic['name']);
+							copy($pic['tmp_name'], "img/".$pic['name']);
 							$filepic = $pic['name'];
 							
-							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', 
-							prodate ='".date('Y-m-d H:i:s')."', branch_name ='$branch' where product_id ='$id'";
+							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', storeid = '$store', 
+							prodate ='".date('Y-m-d H:i:s')."' where product_id ='$id'";
 							pg_query($conn,$sqlString);
 							echo '<meta http-equiv="refresh" content="0;URL=?page=pm"';	
 						// }
@@ -255,8 +263,8 @@ echo "<SELECT name ='BranchList' class='from-control'>
 				// $result = mysqli_query($conn, $sql);
 				// if(mysqli_num_rows($result)=="0")
 // {
-					$sqlString = "UPDATE product set product_name ='$proname', price = '$price',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat', 
-					prodate='".date('Y-m-d H:i:s')."', branch_id ='$short' where product_id ='$id'";
+					$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat', storeid = '$store', 
+					prodate='".date('Y-m-d H:i:s')."' where product_id ='$id'";
 					pg_query($conn,$sqlString);
 					echo '<meta http-equiv="refresh" content="0;URL =?page=pm"';	
 					
