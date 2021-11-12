@@ -19,7 +19,7 @@
     <!-- Breadcrumb Section End -->
 <!-- Bootstrap --> 
 <form name="frm" method="post" action="">
-        <h1>Branch</h1>
+        <h2>Branches</h2>
         <p>
         <i class="fa fa-plus"></i> <a href="?page=addbr"> Add</a>
         </p>
