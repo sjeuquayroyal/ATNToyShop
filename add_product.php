@@ -219,7 +219,7 @@
                         
 				<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-						      <input type="submit"  class="site-btn" name="btnAdd" id="btnAdd" value="Add"/>
+						      <input type="submit"  class="site-btn" name="btnAdd" id="btnAdd" value="Add" onclick="window.location='?page=pm'" />
                               <input type="button" class="site-btn" name="btnIgnore"  id="btnIgnore" value="Ignore" onclick="window.location='?page=pm'" />
                               	
 						</div>
