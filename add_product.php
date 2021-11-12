@@ -83,7 +83,7 @@
 		echo"<SELECT name ='BranchList'class='form-control '
 			<option value='0'>Choose branch</option>";
 			while($row = pg_fetch_array($result, NULL, PGSQL_ASSOC)){
-				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_name']. "</option>";
+				echo"<OPTION value='".$row['branch_id']."'>".$row['branch_id']. "</option>";
 			}
 			echo"</select>";
 
@@ -128,7 +128,7 @@
 						copy($pic['tmp_name'],"image/".$pic['name']);
 						$filePic =$pic['name'];
 						$sqlstring="INSERT INTO product(
-							product_id, product_name, price, branch_name, detaildesc, prodate, pro_qty, pro_image, cat_id)
+							product_id, product_name, price, branch_id, detaildesc, prodate, pro_qty, pro_image, cat_id)
 							VALUES('$id','$proname', $price,'$branch','$detail','".date('Y-m-d H:i:s')."',$qty,'$filePic','$branchlist')";
 							
 						pg_query($conn, $sqlstring);
