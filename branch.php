@@ -43,7 +43,7 @@
                                     <span class="arrow_carrot-down"></span>
                                     
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -72,7 +72,7 @@
                         <h2>Branch Management</h2>
                         <div class="breadcrumb__option">
                             <a href="?page=content">Home</a>
-                            <span>Branchs Management</span>
+                            <span>Branches Management</span>
                         </div>
                     </div>
                 </div>
