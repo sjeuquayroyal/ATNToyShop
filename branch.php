@@ -21,7 +21,7 @@
 <form name="frm" method="post" action="">
         <h2>Branches</h2>
         <p>
-        <i class="fa fa-plus"></i text-align: Right> <a href="?page=addbr"> Add</a>
+        <i class="fa fa-plus"></i> <a href="?page=addbr"> Add</a>
         </p>
         <table id="tablebranch" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
