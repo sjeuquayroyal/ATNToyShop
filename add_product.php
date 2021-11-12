@@ -194,9 +194,7 @@
 							      <?php bind_Branch_List($conn); ?>
 							</div>
                 </div> 
-				<div class="form-group">  
-				<label for="lblDetail" class="col-sm-2 control-label"></label>
-				</div>          
+				       
                 <div class="form-group">   
                     <label for="lblDetail" class="col-sm-2 control-label">Detail Description(*):  </label>
 							<div class="col-sm-10">
