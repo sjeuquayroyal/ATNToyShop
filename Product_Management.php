@@ -51,7 +51,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 77 444 6678</h5>
+                                <h5>+84 09 0785 3006</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                                 <tr>
                                     <th class="shoping__product">Products</th>
                                     <th class="shoping__product">Category</th>
-                                   
+                                    <th class="shoping__product">Branch</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
                                     <th><a href="?page=addp">Add</a></th>
@@ -146,6 +146,9 @@
                                     <td class="shoping__cart__item">
                                         
                                         <h5><?php echo $row["cat_name"]; ?></h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        $<?php echo $row["branch_id"]; ?>
                                     </td>
                                     <td class="shoping__cart__price">
                                         $<?php echo $row["price"]; ?>
