@@ -126,7 +126,7 @@
                             <?php //
                                  if(isset($_GET['id'])){
                                     $id=$_GET['id'];
-                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.price, product.pro_qty, product.pro_image, category.cat_name 
+                                    $result = pg_query($conn,"SELECT product.product_id, product.product_name, product.branch_id, product.price, product.pro_qty, product.pro_image, category.cat_name 
                                     from product, category where product.cat_id = category.cat_id and '$id'=category.cat_id ");
             
                                 }else{
