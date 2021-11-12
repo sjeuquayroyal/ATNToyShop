@@ -96,7 +96,7 @@
                                 <tr>
                                     <th class="shoping__product">Products</th>
                                     <th class="shoping__product">Category</th>
-                                    
+                                    <th class="shoping__product">Branch</th>
                                     
                                     <th>Price</th>
                                     <th>Quantity</th>
@@ -153,9 +153,14 @@
                                         
                                         <h5><?php echo $row["cat_name"]; ?></h5>
                                     </td>
+                                    <td class="shoping__cart__item">
+                                        
+                                        <h5><?php echo $row["branch_name"]; ?></h5>
+                                    </td>
                                     <td class="shoping__cart__price">
                                         $<?php echo $row["price"]; ?>
                                     </td>
+                                    
                                     <td class="shoping__cart__price">
                                         
                                             
