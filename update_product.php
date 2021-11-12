@@ -96,7 +96,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 		$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
 
 		$proname = $row['product_name'];
-		$short = $row['smalldesc'];
+		$short = $row['branch'];
 		$detail = $row['detaildesc'];
 		$price = $row['price'];
 		$qty = $row['pro_qty'];
@@ -235,7 +235,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 				// $result = mysqli_query($conn, $sql);
 				// if(mysqli_num_rows($result)=="0")
 // {
-					$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat', 
+					$sqlString = "UPDATE product set product_name ='$proname', price = '$price', branch_id ='$short',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat', 
 					prodate='".date('Y-m-d H:i:s')."' where product_id ='$id'";
 					pg_query($conn,$sqlString);
 					echo '<meta http-equiv="refresh" content="0;URL =?page=pm"';	
