@@ -37,7 +37,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 77 444 6678</h5>
+                                <h5>+84 09 078 53006</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/Background.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="ATNtoy/Background.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -186,7 +186,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 				<div class="form-group">  
 	                <label for="sphinhanh" class="col-sm-2 control-label">Image(*):  </label>
 							<div class="col-sm-10">
-							<img src='img/<?php echo $pic; ?>' border='0' width="50" height="50"  />
+							<img src='ATNtoy/<?php echo $pic; ?>' border='0' width="50" height="50"  />
 							      <input type="file" name="txtImage" id="txtImage" class="form-control" value=""/>
 							</div>
                 </div>
@@ -229,7 +229,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 					if($pic['size']<=614400)
 					{
 						
-							copy($pic['tmp_name'], "img/".$pic['name']);
+							copy($pic['tmp_name'], "ATNtoy/".$pic['name']);
 							$filepic = $pic['name'];
 							
 							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', branch_name = '$branch', 
