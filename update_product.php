@@ -37,7 +37,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+84 15 151 0041</h5>
+                                <h5>+84 77 444 6678</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -49,14 +49,14 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/background-đẹp-3-1024x682.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="img/Background.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
                         <h2>Products Management</h2>
                         <div class="breadcrumb__option">
-                            <a href="?page=content">Home</a>
+                            <a href="./index.html">Home</a>
                             <span>Products Management</span>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
 	{
 		$sqlString = "SELECT cat_id, cat_name from category";
 		$result = pg_query($conn, $sqlString);
-		echo "<SELECT name ='CategoryList' class='from-control'>
+echo "<SELECT name ='CategoryList' class='from-control'>
 			<option value='0'>Choose Category</option>";
 			while ($row=pg_fetch_array($result,NULL, PGSQL_ASSOC))
 			{
@@ -87,21 +87,21 @@
 			}
 		echo "</select>";
 	}
-	function bind_Store_List($conn, $selectedValue)
+	function bind_Branch_List($conn, $selectedValue)
 	{
-		$sqlString = "SELECT storeid, storename from store";
+		$sqlString = "SELECT branch_id, branch_name from branch";
 		$result = pg_query($conn, $sqlString);
-		echo "<SELECT name ='StoreList' class='from-control'>
-			<option value='0'>Choose Store</option>";
+		echo "<SELECT name ='BranchList' class='from-control'>
+			<option value='0'>Choose Branch</option>";
 			while ($row=pg_fetch_array($result,NULL, PGSQL_ASSOC))
 			{
-				if($row['storeid']==$selectedValue)
+				if($row['branch_name']==$selectedValue)
 				{
-					echo "<option value ='".$row['storeid']."' selected>".$row['storename']."</option>";
+					echo "<option value ='".$row['branch_id']."' selected>".$row['branch_name']."</option>";
 				}
 				else
 				{
-					echo "<option value='".$row['storeid']."'>".$row['storename']."</option>";
+					echo "<option value='".$row['branch_id']."'>".$row['branch_name']."</option>";
 				}
 			}
 		echo "</select>";
@@ -109,7 +109,7 @@
 	if(isset($_GET['id']))
 	{
 		$id = $_GET['id'];
-		$sqlString = "SELECT product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id, storeid from product where product_id='$id'";
+		$sqlString = "SELECT product_name, price, smalldesc, detaildesc, prodate, pro_qty, pro_image, cat_id, branch_id from product where product_id='$id'";
 
 		$result = pg_query($conn, $sqlString);
 		$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
@@ -121,7 +121,7 @@
 		$qty = $row['pro_qty'];
 		$pic = $row['pro_image'];
 		$category = $row['cat_id'];
-		$store = $row['storeid'];
+		$branch = $row['branch_name'];
 ?>
 <div class="container">
 	<h2>Updating Product</h2>
@@ -141,13 +141,6 @@
 								  placeholder="Product Name" value='<?php echo $row["product_name"]?>'/>
 							</div>
                 </div>   
-				<div class="form-group">   
-                    <label for="" class="col-sm-5 control-label">Product Store(*):  </label>
-							<div class="col-sm-10">
-								<?php bind_Store_List($conn, $store); ?>
-							      
-							</div>
-                </div>  
                 <div class="form-group">   
                     <label for="" class="col-sm-5 control-label">Product category(*):  </label>
 							<div class="col-sm-10">
@@ -162,7 +155,13 @@
 							      <input type="text" name="txtPrice" id="txtPrice" class="form-control" placeholder="Price" value="<?php echo $price?>"/>
 							</div>
                  </div>   
-                            
+				 <div class="form-group">   
+                    <label for="" class="col-sm-5 control-label">Branch category(*):  </label>
+							<div class="col-sm-10">
+								<?php bind_Branch_List($conn, $branch); ?>
+							      
+							</div>
+                </div>  
                 <div class="form-group">   
                     <label for="lblShort" class="col-sm-5 control-label">Short description(*):  </label>
 							<div class="col-sm-10">
@@ -206,14 +205,13 @@
 	{
 		$id = $_POST['txtID'];
 		$proname = $_POST['txtName'];
-		$store = $_POST['StoreList'];
 		$short = $_POST['txtShort'];
 		$detail = $_POST['txtDetail'];
 		$price = $_POST['txtPrice'];
 		$qty = $_POST['txtQty'];
 		$pic = $_FILES['txtImage'];
 		$cat = $_POST['CategoryList'];
-		
+		$branch = $_POST['BranchList'];
 		$err = "";
 
 		
@@ -230,22 +228,15 @@
 				{
 					if($pic['size']<=614400)
 					{
-						// $sql="select * from Product where Product_ID='$id' and Product_Name='$proname'";
-						// $result = mysqli_query($conn, $sql);
-						// if(mysqli_num_rows($result)=="0")
-						// {
+						
 							copy($pic['tmp_name'], "img/".$pic['name']);
 							$filepic = $pic['name'];
 							
-							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', storeid = '$store', 
+							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', branch_name = '$branch', 
 							prodate ='".date('Y-m-d H:i:s')."' where product_id ='$id'";
 							pg_query($conn,$sqlString);
 							echo '<meta http-equiv="refresh" content="0;URL=?page=pm"';	
-						// }
-						// else
-						// {
-						// 	echo "Duplicate name</br>";
-						// }
+					
 					}
 					else
 					{
@@ -259,20 +250,13 @@
 			}
 			else
 			{
-				// $sql="SELECT * from Product where Product_ID='$id' and Product_Name='$proname'";
-				// $result = mysqli_query($conn, $sql);
-				// if(mysqli_num_rows($result)=="0")
-// {
-					$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat', storeid = '$store', 
+				
+					$sqlString = "UPDATE product set product_name ='$proname', price = '$price', smalldesc ='$short',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat',branch_name= '$branch', 
 					prodate='".date('Y-m-d H:i:s')."' where product_id ='$id'";
 					pg_query($conn,$sqlString);
 					echo '<meta http-equiv="refresh" content="0;URL =?page=pm"';	
 					
-				// }
-				// else
-				// {
-				// 	echo "Duplicate name</br>";
-				// }
+			
 			}
 		}
 	}
