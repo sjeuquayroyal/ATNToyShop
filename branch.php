@@ -27,7 +27,7 @@
                         </div>
                         
                         <ul>
-                        <li ><a  href="?page=pm">All</a></li>
+                        <li ><a  href="?page=branch">All</a></li>
 
                         <?php Category_List($conn ); ?>
                             
@@ -39,7 +39,7 @@
                         <div class="hero__search__form">
                             <form action="#">
                                 <div class="hero__search__categories">
-                                    All Categories
+                                    All Branches
                                     <span class="arrow_carrot-down"></span>
                                     
                                 </div>
