@@ -87,10 +87,29 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 			}
 		echo "</select>";
 	}
+	function bind_Branch_List($conn, $selectedValue)
+	{
+		$sqlString = "SELECT branch_id, branch_name from category";
+		$result = pg_query($conn, $sqlString);
+echo "<SELECT name ='BranchList' class='from-control'>
+			<option value='0'>Choose Branch</option>";
+			while ($row=pg_fetch_array($result,NULL, PGSQL_ASSOC))
+			{
+				if($row['cat_id']==$selectedValue)
+				{
+					echo "<option value ='".$row['cat_id']."' selected>".$row['cat_name']."</option>";
+				}
+				else
+				{
+					echo "<option value='".$row['cat_id']."'>".$row['cat_name']."</option>";
+				}
+			}
+		echo "</select>";
+	}
 	if(isset($_GET['id']))
 	{
 		$id = $_GET['id'];
-		$sqlString = "SELECT product_name, price, branch_id, detaildesc, prodate, pro_qty, pro_image, cat_id from product where product_id='$id'";
+		$sqlString = "SELECT product_name, price, branch_name, detaildesc, prodate, pro_qty, pro_image, cat_id from product where product_id='$id'";
 
 		$result = pg_query($conn, $sqlString);
 		$row = pg_fetch_array($result, NULL, PGSQL_ASSOC);
@@ -162,7 +181,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 				<div class="form-group">   
                     <label for="lblShort" class="col-sm-5 control-label">Branch(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Branch" value="<?php echo $short?>"/>
+							<?php bind_Branch_List($conn, $category); ?>
 							</div>
                 </div>
                         
@@ -180,7 +199,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 	{
 		$id = $_POST['txtID'];
 		$proname = $_POST['txtName'];
-		$short = $_POST['txtShort'];
+		$branch = $_POST['txtBranch'];
 		$detail = $_POST['txtDetail'];
 		$price = $_POST['txtPrice'];
 		$qty = $_POST['txtQty'];
@@ -211,7 +230,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 							$filepic = $pic['name'];
 							
 							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', 
-							prodate ='".date('Y-m-d H:i:s')."', branch_id ='$short' where product_id ='$id'";
+							prodate ='".date('Y-m-d H:i:s')."', branch_name ='$branch' where product_id ='$id'";
 							pg_query($conn,$sqlString);
 							echo '<meta http-equiv="refresh" content="0;URL=?page=pm"';	
 						// }
