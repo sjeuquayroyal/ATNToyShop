@@ -136,12 +136,7 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 							</div>
                  </div>   
                             
-                <div class="form-group">   
-                    <label for="lblShort" class="col-sm-5 control-label">Branch(*):  </label>
-							<div class="col-sm-10">
-							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Short description" value="<?php echo $short?>"/>
-							</div>
-                </div>
+                
                             
                 <div class="form-group">   
                     <label for="lblDetail" class="col-sm-5 control-label">Detail Description(*):  </label>
@@ -162,6 +157,12 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 							<div class="col-sm-10">
 							<img src='img/<?php echo $pic; ?>' border='0' width="50" height="50"  />
 							      <input type="file" name="txtImage" id="txtImage" class="form-control" value=""/>
+							</div>
+                </div>
+				<div class="form-group">   
+                    <label for="lblShort" class="col-sm-5 control-label">Branch(*):  </label>
+							<div class="col-sm-10">
+							      <input type="text" name="txtShort" id="txtShort" class="form-control" placeholder="Branch" value="<?php echo $short?>"/>
 							</div>
                 </div>
                         
@@ -206,11 +207,11 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 						// $result = mysqli_query($conn, $sql);
 						// if(mysqli_num_rows($result)=="0")
 						// {
-							copy($pic['tmp_name'], "img/".$pic['name']);
+							copy($pic['tmp_name'], "ATNtoy/".$pic['name']);
 							$filepic = $pic['name'];
 							
-							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', branch_id ='$short', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', 
-							prodate ='".date('Y-m-d H:i:s')."' where product_id ='$id'";
+							$sqlString = "UPDATE product set product_name ='$proname', price = '$price', detaildesc ='$detail', pro_qty ='$qty', pro_image ='$filepic', cat_id ='$cat', 
+							prodate ='".date('Y-m-d H:i:s')."', branch_id ='$short' where product_id ='$id'";
 							pg_query($conn,$sqlString);
 							echo '<meta http-equiv="refresh" content="0;URL=?page=pm"';	
 						// }
@@ -235,8 +236,8 @@ echo "<SELECT name ='CategoryList' class='from-control'>
 				// $result = mysqli_query($conn, $sql);
 				// if(mysqli_num_rows($result)=="0")
 // {
-					$sqlString = "UPDATE product set product_name ='$proname', price = '$price', branch_id ='$short',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat', 
-					prodate='".date('Y-m-d H:i:s')."' where product_id ='$id'";
+					$sqlString = "UPDATE product set product_name ='$proname', price = '$price',  detaildesc ='$detail', pro_qty='$qty', cat_id='$cat', 
+					prodate='".date('Y-m-d H:i:s')."', branch_id ='$short' where product_id ='$id'";
 					pg_query($conn,$sqlString);
 					echo '<meta http-equiv="refresh" content="0;URL =?page=pm"';	
 					
