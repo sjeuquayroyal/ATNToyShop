@@ -1,26 +1,4 @@
-    <!-- Breadcrumb Section Begin -->
-    <script>
-        function deleteConfirm(){
-            if(confirm("Are you sure?")){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-    </script>
-    
-   
-
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All Departments</span>
+<span>All Departments</span>
                         <ul>
                             <?php Department($conn); ?>
                         </ul>
@@ -29,7 +7,7 @@
                         <ul>
                         <li ><a  href="?page=branch">All</a></li>
 
-                        <?php branch_List($conn ); ?>
+                        <?php Branch_List($conn ); ?>
                             
                         </ul>
                     </div>
@@ -71,8 +49,8 @@
                     <div class="breadcrumb__text">
                         <h2>Branch Management</h2>
                         <div class="breadcrumb__option">
-                            <a href="?page=content">Home</a>
-                            <span>Branches Management</span>
+                            <a href="./index.html">Home</a>
+                            <span>Branch Management</span>
                         </div>
                     </div>
                 </div>
