@@ -44,7 +44,7 @@ include_once("connection.php");
                 <li><a href="#"><i class="fa fa-heart"></i> <span>2</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <div class="header__cart__price">item: <span>$00.00</span></div>
+            <div class="header__cart__price">Mục: <span>VNĐ</span></div>
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
@@ -63,10 +63,10 @@ include_once("connection.php");
 									 <table>
                                         <tr>
                                             <td>
-                                                <a href="?page=prof"><i class="fa fa-user"></i> Hi,<?php echo $_SESSION['us'] ?></a>
+                                                <a href="?page=prof"><i class="fa fa-user"></i> Chào,<?php echo $_SESSION['us'] ?></a>
                                             </td>
                                             <td>
-                                             <a href="?page=logout"><i class="fa fa-sign-out"></i>| Log Out</a>
+                                             <a href="?page=logout"><i class="fa fa-sign-out"></i>| Đăng xuất</a>
                                             </td>
                                         
                                         </tr>
@@ -78,10 +78,10 @@ include_once("connection.php");
 									 <table>
                                         <tr>
                                             <td>
-                                                <a href="?page=login"><i class="fa fa-user"></i> Login |</a>
+                                                <a href="?page=login"><i class="fa fa-user"></i> Đăng nhập |</a>
                                             </td>
                                             <td>
-                                                <a href="?page=register"></i>| Register</a>
+                                                <a href="?page=register"></i>| Đăng ký</a>
                                             </td>
                                         
                                         </tr>
@@ -93,18 +93,18 @@ include_once("connection.php");
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="?page=content">Home</a></li>
+                <li class="active"><a href="?page=content">Trang chủ</a></li>
                 <li><a href="?page=shop-grid">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
                         
-                        <li><a href="?page=shopping-cart">Shoping Cart</a></li>
-                        <li><a href="?page=checkout">Check Out</a></li>
+                        <li><a href="?page=shopping-cart">Giỏ hàng</a></li>
+                        <li><a href="?page=checkout">Thanh toán</a></li>
                         
                     </ul>
                 </li>
                 
-                <li><a href="?page=contact">Contact</a></li>
+                <li><a href="?page=contact">Liên hệ</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -117,14 +117,14 @@ include_once("connection.php");
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> sieungccgcc19186@fpt.edu.vn</li>
-                <li>A shopping website for toy</li>
+                <li>Cửa hàng mỹ phẩm</li>
             </ul>
         </div>
         <div class="col-lg-3">
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>Các mục</span>
                         </div>
                         <ul>
                         <?php Department($conn); ?>
@@ -144,7 +144,7 @@ include_once("connection.php");
                         <div class="header__top__left">
                             <ul>
                                 <li><i class="fa fa-envelope"></i> sieungcc19186@fpt.edu.vn</li>
-                                <li>A shopping website for toy </li>
+                                <li>Trang bán mỹ phẩm</li>
                             </ul>
                         </div>
                     </div>
@@ -172,10 +172,10 @@ include_once("connection.php");
 									 <table>
                                         <tr>
                                             <td>
-                                                <a href="?page=prof"><i class="fa fa-user"></i> Hi,<?php echo $_SESSION['us'] ?></a>
+                                                <a href="?page=prof"><i class="fa fa-user"></i> Chào,<?php echo $_SESSION['us'] ?></a>
                                             </td>
                                             <td>
-                                             <a href="?page=logout"><i class="fa fa-sign-out"></i>| Log Out</a>
+                                             <a href="?page=logout"><i class="fa fa-sign-out"></i>| Đăng xuất</a>
                                             </td>
                                         
                                         </tr>
@@ -187,10 +187,10 @@ include_once("connection.php");
 									 <table>
                                         <tr>
                                             <td>
-                                                <a href="?page=login"><i class="fa fa-user"></i> Login |</a>
+                                                <a href="?page=login"><i class="fa fa-user"></i> Đăng nhập |</a>
                                             </td>
                                             <td>
-                                                <a href="?page=register"></i>| Register</a>
+                                                <a href="?page=register"></i>| Đăng ký</a>
                                             </td>
                                         
                                         </tr>
@@ -221,7 +221,7 @@ include_once("connection.php");
                     <nav class="header__menu">
                     
                         <ul>
-                            <li class="active"><a href="?page=content">Home</a></li>
+                            <li class="active"><a href="?page=content">Trang chủ</a></li>
                             <li><a href="?page=shop-grid">Shop</a></li>
                             
                             <?php  if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1){ 
@@ -234,24 +234,24 @@ include_once("connection.php");
                                     <li><a href="?page=content">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     
-                                    <li><a href="?page=shopping-cart">Shoping Cart</a></li>
-                                    <li><a href="?page=checkout">Check Out</a></li>
+                                    <li><a href="?page=shopping-cart">Giỏ hàng</a></li>
+                                    <li><a href="?page=checkout">Thanh toán</a></li>
                                     
                                 </ul>
                             </li>
                                 
                             <?php } else {                         
                             ?>
-                            <li><a href="?page=content">Pages</a>
+                            <li><a href="?page=content">Trang</a>
                                 <ul class="header__menu__dropdown">
                                     
-                                    <li><a href="?page=shopping-cart">Shoping Cart</a></li>
-                                    <li><a href="?page=checkout">Check Out</a></li>
+                                    <li><a href="?page=shopping-cart">Giỏ hàng</a></li>
+                                    <li><a href="?page=checkout">Thanh toán</a></li>
                                     
                                 </ul>
                             </li>
                            
-                            <li><a href="?page=contact">Contact</a></li>
+                            <li><a href="?page=contact">Liên hệ</a></li>
                             <?php 
                                 } 
                              ?>
@@ -264,12 +264,12 @@ include_once("connection.php");
                              <nav class="header__menu">
                     
                              <ul>
-                                 <li class="active"><a href="?page=content">Home</a></li>
-                                 <li><a href="?page=shop-grid">Shop</a></li>
+                                 <li class="active"><a href="?page=content">Trang chủ</a></li>
+                                 <li><a href="?page=shop-grid">Cửa hàng</a></li>
                                  
                                 
-                                 <li><a href="?page=contact">Contact</a></li>
-                                 <li><a href="?page=shopping-cart">Shoping Cart</a></li>
+                                 <li><a href="?page=contact">Liên hệ</a></li>
+                                 <li><a href="?page=shopping-cart"></a></li>
                                  
                              </ul> 
                              
@@ -285,7 +285,7 @@ include_once("connection.php");
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$00.00</span></div>
+                        <div class="header__cart__price">item:<span>VNĐ</span></div>
                     </div>
                 </div>
             </div>
@@ -402,7 +402,7 @@ include_once("connection.php");
                             <a href="./index.html"><img src="ATNtoy/Logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 160 Road 30/4 An Phu, Ninh Kieu, Can Tho, Vietnam</li>
+                            <li>Address: 160 Đường 30/4 An Phu, Ninh Kieu, Can Tho, Vietnam</li>
                             <li>Phone: +84 90 785 3006</li>
                             <li>Email: sieungcc19186@fpt.edu.vn</li>
                         </ul>
@@ -412,7 +412,7 @@ include_once("connection.php");
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Thông tin</a></li>
                             <li><a href="#">About Our Shop</a></li>
                             <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
