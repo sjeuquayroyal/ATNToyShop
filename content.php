@@ -7,7 +7,7 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>All departments</span>
+                            <span>Lục</span>
                         </div>
                         <ul>
                         <?php Department($conn); ?>
@@ -21,7 +21,7 @@
                             <form action="#" method="POST">
                                 
                                 <input type="text" name="txtSearch" placeholder="What do you need?">
-                                <button type="submit" id="btnSearch" name ="btnSearch" class="site-btn">SEARCH</button>
+                                <button type="submit" id="btnSearch" name ="btnSearch" class="site-btn">Tìm kiiếm</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>+84 90 785 3006</h5>
-                                <span>support 24/7 time</span>
+                                <span>Hỗ trợ 24/7</span>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                             <span>NEW ON</span>
                             <h2>ATN <br />TOY </h2> 
                             
-                            <a href="?page=shop-grid" class="primary-btn">SHOP NOW</a>
+                            <a href="?page=shop-grid" class="primary-btn">SHOP</a>
                         </div>
                     </div>
                 </div>
