@@ -116,7 +116,7 @@ include_once("connection.php");
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> sieungccgcc19186@fpt.edu.vn</li>
+                <li><i class="fa fa-envelope"></i> healthyfood159510696@gmail.com</li>
                 <li>Cửa hàng mỹ phẩm</li>
             </ul>
         </div>
@@ -143,7 +143,7 @@ include_once("connection.php");
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> sieungcc19186@fpt.edu.vn</li>
+                                <li><i class="fa fa-envelope"></i> healthyfood159510696@gmail.com</li>
                                 <li>Trang bán mỹ phẩm</li>
                             </ul>
                         </div>
@@ -403,8 +403,8 @@ include_once("connection.php");
                         </div>
                         <ul>
                             <li>Address: 160 Đường 30/4 An Phu, Ninh Kieu, Can Tho, Vietnam</li>
-                            <li>Phone: +84 90 785 3006</li>
-                            <li>Email: sieungcc19186@fpt.edu.vn</li>
+                            <li>Phone: +84 90 720 0573</li>
+                            <li>Email: healthyfood159510696@gmail.com</li>
                         </ul>
                     </div>
                 </div>
@@ -413,7 +413,7 @@ include_once("connection.php");
                         <h6>Useful Links</h6>
                         <ul>
                             <li><a href="#">Thông tin</a></li>
-                            <li><a href="#">About Our Shop</a></li>
+                            
                             <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
                             <li><a href="#">Privacy Policy</a></li>
