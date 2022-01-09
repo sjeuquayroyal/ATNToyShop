@@ -402,7 +402,6 @@ include_once("connection.php");
                             <a href="./index.html"><img src="ATNtoy/Logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 160 Đường 30/4 An Phu, Ninh Kieu, Can Tho, Vietnam</li>
                             <li>Phone: +84 90 720 0573</li>
                             <li>Email: healthyfood159510696@gmail.com</li>
                         </ul>
